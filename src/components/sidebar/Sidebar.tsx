@@ -5,7 +5,7 @@ import {
   Calendar, 
   Clock, 
   Kanban, 
-  Notes
+  FileText
 } from "lucide-react";
 
 interface NavItemProps {
@@ -59,7 +59,7 @@ export const Sidebar = () => {
     },
     {
       href: "/notes",
-      icon: <Notes className="h-5 w-5" />,
+      icon: <FileText className="h-5 w-5" />,
       label: "Notes",
     },
   ];

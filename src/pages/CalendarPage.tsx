@@ -104,13 +104,13 @@ export default function CalendarPage() {
                   day_selected: "bg-dashboard-purple text-primary-foreground",
                 }}
                 components={{
-                  DayContent: ({ day }) => {
-                    const date = day.date;
+                  DayContent: (props) => {
+                    const date = props.date;
                     const eventsForThisDate = getEventsForDate(date);
                     
                     return (
                       <div className="relative w-full h-full flex items-center justify-center">
-                        {day.day}
+                        {date.getDate()}
                         {eventsForThisDate.length > 0 && (
                           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-dashboard-blue rounded-full"></div>
                         )}
