@@ -1,14 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
-const Index = () => {
+import { PomodoroTimer } from "@/components/pomodoro/PomodoroTimer";
+import { MusicPlayer } from "@/components/music/MusicPlayer";
+import { DailyGoals } from "@/components/goals/DailyGoals";
+
+export default function Index() {
+  const today = new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(new Date());
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="container mx-auto py-6">
+      <div className="mb-6">
+        <h1 className="text-3xl font-bold">Dashboard</h1>
+        <p className="text-slate-500">{today}</p>
+      </div>
+
+      <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
+        <div>
+          <PomodoroTimer />
+        </div>
+        <div>
+          <MusicPlayer />
+        </div>
+      </div>
+
+      <div className="mt-6">
+        <DailyGoals />
       </div>
     </div>
   );
-};
-
-export default Index;
+}
